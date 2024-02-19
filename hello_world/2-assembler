@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S -o 0-preprocessor.o $CFILE
+gcc -S $CFILE -o main.s
