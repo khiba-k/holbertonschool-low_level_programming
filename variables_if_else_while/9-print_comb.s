@@ -14,33 +14,22 @@ main:
 	subq	$16, %rsp
 	movl	$48, -4(%rbp)
 	jmp	.L2
-.L3:
-	movl	-4(%rbp), %ecx
-	movslq	%ecx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	movl	%eax, %edx
-	sarl	$2, %edx
-	movl	%ecx, %eax
-	sarl	$31, %eax
-	subl	%eax, %edx
-	movl	%edx, %eax
-	sall	$2, %eax
-	addl	%edx, %eax
-	addl	%eax, %eax
-	subl	%eax, %ecx
-	movl	%ecx, %edx
-	leal	48(%rdx), %eax
+.L4:
+	movl	-4(%rbp), %eax
+	addl	$48, %eax
 	movl	%eax, %edi
 	call	putchar@PLT
+	cmpl	$8, -4(%rbp)
+	jg	.L3
 	movl	$44, %edi
 	call	putchar@PLT
 	movl	$32, %edi
 	call	putchar@PLT
+.L3:
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$9, -4(%rbp)
-	jle	.L3
+	jle	.L4
 	movl	$10, %edi
 	call	putchar@PLT
 	movl	$0, %eax
