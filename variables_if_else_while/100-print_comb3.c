@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+/**
+ * main -  function begins
+ * Return: end of function
+*/
+int main(void)
+{
+int num;
+int no;
+for (num = 0; num <= 99; num++)
+{
+for (no = num + 1; no <= 99; no++)
+{
+putchar((no / 10) + '0');
+putchar((no % 10) + '0');
+if (no < 98 || no < 99)
+{
+putchar(',');
+putchar(' ');
+}
+}
+return (0);
+}
+}
