@@ -33,13 +33,7 @@ main:
 	leal	48(%rdx), %eax
 	movl	%eax, %edi
 	call	putchar@PLT
-	cmpl	$8, -4(%rbp)
-	jg	.L3
-	movl	$44, %edi
-	call	putchar@PLT
-	movl	$32, %edi
-	call	putchar@PLT
-.L3:
+	cmpl	$9, -4(%rbp)
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$9, -4(%rbp)
