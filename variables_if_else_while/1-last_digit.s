@@ -23,6 +23,13 @@ main:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
+	movl	$0, %edi
+	call	time@PLT
+	movl	%eax, %edi
+	call	srand@PLT
+	call	rand@PLT
+	subl	$1073741823, %eax
+	movl	%eax, -8(%rbp)
 	movl	-8(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -39,13 +46,6 @@ main:
 	subl	%eax, %edx
 	movl	%edx, %eax
 	movl	%eax, -4(%rbp)
-	movl	$0, %edi
-	call	time@PLT
-	movl	%eax, %edi
-	call	srand@PLT
-	call	rand@PLT
-	subl	$1073741823, %eax
-	movl	%eax, -8(%rbp)
 	cmpl	$5, -4(%rbp)
 	jle	.L2
 	movl	-4(%rbp), %edx
