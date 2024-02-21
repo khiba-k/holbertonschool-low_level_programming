@@ -22,8 +22,20 @@ main:
 	addl	$1, %eax
 	movb	%al, -1(%rbp)
 .L2:
-	cmpb	$90, -1(%rbp)
+	cmpb	$122, -1(%rbp)
 	jle	.L3
+	movb	$65, -1(%rbp)
+	jmp	.L4
+.L5:
+	movsbl	-1(%rbp), %eax
+	movl	%eax, %edi
+	call	putchar@PLT
+	movzbl	-1(%rbp), %eax
+	addl	$1, %eax
+	movb	%al, -1(%rbp)
+.L4:
+	cmpb	$66, -1(%rbp)
+	jle	.L5
 	movl	$10, %edi
 	call	putchar@PLT
 	movl	$0, %eax
