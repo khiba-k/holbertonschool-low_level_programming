@@ -12,17 +12,17 @@ main:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movb	$48, -1(%rbp)
+	movl	$0, -4(%rbp)
 	jmp	.L2
 .L4:
-	movzbl	-1(%rbp), %ecx
-	movsbw	%cl, %ax
-	imull	$103, %eax, %eax
-	shrw	$8, %ax
+	movl	-4(%rbp), %ecx
+	movslq	%ecx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
 	movl	%eax, %edx
-	sarb	$2, %dl
+	sarl	$2, %edx
 	movl	%ecx, %eax
-	sarb	$7, %al
+	sarl	$31, %eax
 	subl	%eax, %edx
 	movl	%edx, %eax
 	sall	$2, %eax
@@ -30,16 +30,19 @@ main:
 	addl	%eax, %eax
 	subl	%eax, %ecx
 	movl	%ecx, %edx
-	movsbl	%dl, %eax
-	addl	$48, %eax
+	leal	48(%rdx), %eax
 	movl	%eax, %edi
 	call	putchar@PLT
-	cmpb	$9, -1(%rbp)
-	movzbl	-1(%rbp), %eax
-	addl	$1, %eax
-	movb	%al, -1(%rbp)
+	cmpl	$8, -4(%rbp)
+	jg	.L3
+	movl	$44, %edi
+	call	putchar@PLT
+	movl	$32, %edi
+	call	putchar@PLT
+.L3:
+	addl	$1, -4(%rbp)
 .L2:
-	cmpb	$9, -1(%rbp)
+	cmpl	$9, -4(%rbp)
 	jle	.L4
 	movl	$10, %edi
 	call	putchar@PLT
