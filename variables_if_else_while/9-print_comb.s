@@ -15,8 +15,22 @@ main:
 	movl	$48, -4(%rbp)
 	jmp	.L2
 .L4:
-	movl	-4(%rbp), %eax
-	addl	$48, %eax
+	movl	-4(%rbp), %ecx
+	movslq	%ecx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	movl	%eax, %edx
+	sarl	$2, %edx
+	movl	%ecx, %eax
+	sarl	$31, %eax
+	subl	%eax, %edx
+	movl	%edx, %eax
+	sall	$2, %eax
+	addl	%edx, %eax
+	addl	%eax, %eax
+	subl	%eax, %ecx
+	movl	%ecx, %edx
+	leal	48(%rdx), %eax
 	movl	%eax, %edi
 	call	putchar@PLT
 	cmpl	$8, -4(%rbp)
