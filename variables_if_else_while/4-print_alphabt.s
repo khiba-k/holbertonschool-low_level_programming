@@ -14,22 +14,21 @@ main:
 	subq	$16, %rsp
 	movb	$97, -1(%rbp)
 	jmp	.L2
-.L5:
-	cmpb	$113, -1(%rbp)
-	jne	.L3
+.L4:
 	cmpb	$101, -1(%rbp)
-	je	.L4
-.L3:
+	je	.L3
+	cmpb	$113, -1(%rbp)
+	je	.L3
 	movsbl	-1(%rbp), %eax
 	movl	%eax, %edi
 	call	putchar@PLT
-.L4:
+.L3:
 	movzbl	-1(%rbp), %eax
 	addl	$1, %eax
 	movb	%al, -1(%rbp)
 .L2:
 	cmpb	$122, -1(%rbp)
-	jle	.L5
+	jle	.L4
 	movl	$10, %edi
 	call	putchar@PLT
 	movl	$0, %eax
