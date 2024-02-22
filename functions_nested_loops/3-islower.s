@@ -19,7 +19,7 @@ _islower:
 	movl	$0, %eax
 	jmp	.L3
 .L2:
-	movl	$0, %eax
+	movl	$1, %eax
 .L3:
 	popq	%rbp
 	.cfi_def_cfa 7, 8
