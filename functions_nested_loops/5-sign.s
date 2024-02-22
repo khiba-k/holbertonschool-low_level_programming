@@ -20,16 +20,16 @@ print_sign:
 	movl	$1, %eax
 	jmp	.L3
 .L2:
-	cmpl	$48, -4(%rbp)
-	jne	.L4
-	movl	$48, %edi
-	call	_putchar@PLT
-	movl	$0, %eax
-	jmp	.L3
-.L4:
+	cmpl	$47, -4(%rbp)
+	jg	.L4
 	movl	$45, %edi
 	call	_putchar@PLT
 	movl	$-1, %eax
+	jmp	.L3
+.L4:
+	movl	$48, %edi
+	call	_putchar@PLT
+	movl	$0, %eax
 .L3:
 	leave
 	.cfi_def_cfa 7, 8
