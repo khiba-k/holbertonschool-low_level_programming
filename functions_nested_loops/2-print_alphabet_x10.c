@@ -13,8 +13,8 @@ while (pat <= 9)
 for (c = 'a'; c <= 'z'; c++)
 {
 _putchar(c);
-_putchar('\n');
 }
 pat++;
+_putchar('\n');
 }
 }
