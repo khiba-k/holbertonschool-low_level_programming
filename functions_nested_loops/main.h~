@@ -2,4 +2,4 @@
 
 int _putchar(char c);
 
-void fun(void);
+void print_alphabet(void);
