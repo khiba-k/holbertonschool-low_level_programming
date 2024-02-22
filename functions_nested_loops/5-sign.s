@@ -17,10 +17,6 @@ print_sign:
 	jle	.L2
 	movl	$43, %edi
 	call	_putchar@PLT
-	movl	$44, %edi
-	call	_putchar@PLT
-	movl	$32, %edi
-	call	_putchar@PLT
 	movl	$1, %eax
 	jmp	.L3
 .L2:
@@ -28,18 +24,10 @@ print_sign:
 	jne	.L4
 	movl	$48, %edi
 	call	_putchar@PLT
-	movl	$44, %edi
-	call	_putchar@PLT
-	movl	$32, %edi
-	call	_putchar@PLT
 	movl	$0, %eax
 	jmp	.L3
 .L4:
 	movl	$45, %edi
-	call	_putchar@PLT
-	movl	$44, %edi
-	call	_putchar@PLT
-	movl	$32, %edi
 	call	_putchar@PLT
 	movl	$-1, %eax
 .L3:
