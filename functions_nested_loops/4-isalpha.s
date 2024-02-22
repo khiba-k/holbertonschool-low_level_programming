@@ -1,8 +1,8 @@
 	.file	"4-isalpha.c"
 	.text
-	.globl	_islower
-	.type	_islower, @function
-_islower:
+	.globl	_isalpha
+	.type	_isalpha, @function
+_isalpha:
 .LFB0:
 	.cfi_startproc
 	endbr64
@@ -32,7 +32,7 @@ _islower:
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	_islower, .-_islower
+	.size	_isalpha, .-_isalpha
 	.ident	"GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
