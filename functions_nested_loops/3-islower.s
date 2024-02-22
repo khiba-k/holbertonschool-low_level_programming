@@ -11,59 +11,17 @@ _islower:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	movl	%edi, -20(%rbp)
-	movl	$0, -8(%rbp)
-	movl	$1, -4(%rbp)
-	cmpl	$96, -20(%rbp)
+	movl	%edi, -4(%rbp)
+	cmpl	$96, -4(%rbp)
 	jle	.L2
-	cmpl	$122, -20(%rbp)
+	cmpl	$122, -4(%rbp)
 	jg	.L2
-	movl	-8(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	$0, %eax
 	jmp	.L3
 .L2:
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	movl	%edx, %ecx
-	subl	%eax, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
-.L3:
 	movl	$0, %eax
-	leave
+.L3:
+	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
