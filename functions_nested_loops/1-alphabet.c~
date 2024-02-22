@@ -4,7 +4,7 @@
  *main - function begins
  *Return: end of function
 */
-int main(void)
+void fun(void)
 {
 char c;
 for (c = 'a'; c <= 'z'; c++)

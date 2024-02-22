@@ -26,7 +26,7 @@ fun:
 	jle	.L3
 	movl	$10, %edi
 	call	_putchar@PLT
-	movl	$0, %eax
+	nop
 	leave
 	.cfi_def_cfa 7, 8
 	ret

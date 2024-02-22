@@ -4,7 +4,7 @@
  *main - function begins
  *Return: end of function
 */
-int fun(void)
+void fun(void)
 {
 char c;
 for (c = 'a'; c <= 'z'; c++)
@@ -12,5 +12,4 @@ for (c = 'a'; c <= 'z'; c++)
 _putchar(c);
 }
 _putchar('\n');
-return (0);
 }

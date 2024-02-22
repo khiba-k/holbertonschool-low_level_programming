@@ -2,4 +2,4 @@
 
 int _putchar(char c);
 
-int fun(void);
+void fun(void);
