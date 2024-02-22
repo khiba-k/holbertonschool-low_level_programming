@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- *main - function begins
+ *print_alphabet - function begins
  *Return: end of function
 */
-void fun(void)
+void print_alphabet(void)
 {
 char c;
 for (c = 'a'; c <= 'z'; c++)

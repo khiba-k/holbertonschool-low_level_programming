@@ -1,8 +1,8 @@
 	.file	"1-alphabet.c"
 	.text
-	.globl	fun
-	.type	fun, @function
-fun:
+	.globl	print_alphabet
+	.type	print_alphabet, @function
+print_alphabet:
 .LFB0:
 	.cfi_startproc
 	endbr64
@@ -32,7 +32,7 @@ fun:
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	fun, .-fun
+	.size	print_alphabet, .-print_alphabet
 	.ident	"GCC: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
