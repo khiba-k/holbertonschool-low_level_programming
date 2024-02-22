@@ -21,6 +21,8 @@ print_alphabet_x10:
 	movsbl	-5(%rbp), %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
+	movl	$10, %edi
+	call	_putchar@PLT
 	movzbl	-5(%rbp), %eax
 	addl	$1, %eax
 	movb	%al, -5(%rbp)
@@ -31,8 +33,7 @@ print_alphabet_x10:
 .L2:
 	cmpl	$9, -4(%rbp)
 	jle	.L5
-	movl	$10, %edi
-	call	_putchar@PLT
+	nop
 	nop
 	leave
 	.cfi_def_cfa 7, 8
