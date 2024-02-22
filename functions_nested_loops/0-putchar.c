@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-/*
+/**
  *main - function begins
  * Return: end of function
 */
