@@ -29,7 +29,7 @@ print_alphabet_x10:
 	jle	.L4
 	addl	$1, -4(%rbp)
 .L2:
-	cmpl	$10, -4(%rbp)
+	cmpl	$9, -4(%rbp)
 	jle	.L5
 	movl	$10, %edi
 	call	_putchar@PLT
