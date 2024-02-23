@@ -13,14 +13,14 @@ print_sign:
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
 	movl	%edi, -4(%rbp)
-	cmpl	$48, -4(%rbp)
+	cmpl	$0, -4(%rbp)
 	jle	.L2
 	movl	$43, %edi
 	call	_putchar@PLT
 	movl	$1, %eax
 	jmp	.L3
 .L2:
-	cmpl	$48, -4(%rbp)
+	cmpl	$0, -4(%rbp)
 	jne	.L4
 	movl	$48, %edi
 	call	_putchar@PLT
