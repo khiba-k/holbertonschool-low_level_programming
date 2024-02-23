@@ -26,7 +26,14 @@ print_last_digit:
 	addl	%ecx, %eax
 	addl	%eax, %eax
 	subl	%eax, %edx
-	movl	%edx, -4(%rbp)
+	movl	%edx, -8(%rbp)
+	movl	-4(%rbp), %edx
+	movl	%edx, %eax
+	sall	$2, %eax
+	addl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	movl	%eax, -4(%rbp)
 	movl	-4(%rbp), %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
