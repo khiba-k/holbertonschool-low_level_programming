@@ -1,5 +1,9 @@
 	.file	"11-print_to_98.c"
 	.text
+	.section	.rodata
+.LC0:
+	.string	"%d"
+	.text
 	.globl	print_to_98
 	.type	print_to_98, @function
 print_to_98:
@@ -19,48 +23,20 @@ print_to_98:
 .L6:
 	cmpl	$98, -4(%rbp)
 	jne	.L4
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	jmp	.L5
 .L4:
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	movl	$44, %edi
 	call	_putchar@PLT
 	movl	$32, %edi
@@ -74,48 +50,20 @@ print_to_98:
 .L11:
 	cmpl	$98, -4(%rbp)
 	jne	.L9
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	movl	%edx, %ecx
-	subl	%eax, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	jmp	.L10
 .L9:
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	movl	$44, %edi
 	call	_putchar@PLT
 	movl	$32, %edi

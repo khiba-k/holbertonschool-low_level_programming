@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  *print_to_98 - print integer
  *@n: variable name
@@ -12,11 +12,11 @@ for (; n >= 98; n--)
 {
 if (n == 98)
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 }
 else
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 _putchar(',');
 _putchar(' ');
 }
@@ -28,11 +28,11 @@ for (; n <= 98; n++)
 {
 if (n == 98)
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 }
 else
 {
-_putchar((n % 10) + '0');
+printf("%d", n);
 _putchar(',');
 _putchar(' ');
 }
