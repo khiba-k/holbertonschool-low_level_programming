@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *jack_baur - prototype name
+ *jack_bauer - prototype name
  *void - void function
 */
 void jack_bauer(void)
