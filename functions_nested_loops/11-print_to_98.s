@@ -31,7 +31,7 @@ print_to_98:
 	call	_putchar@PLT
 	subl	$1, -4(%rbp)
 .L2:
-	cmpl	$97, -4(%rbp)
+	cmpl	$98, -4(%rbp)
 	jg	.L3
 	jmp	.L4
 .L5:
@@ -47,7 +47,7 @@ print_to_98:
 	call	_putchar@PLT
 	addl	$1, -4(%rbp)
 .L4:
-	cmpl	$98, -4(%rbp)
+	cmpl	$97, -4(%rbp)
 	jle	.L5
 	cmpl	$98, -4(%rbp)
 	jne	.L7
