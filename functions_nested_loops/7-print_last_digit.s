@@ -27,7 +27,7 @@ print_last_digit:
 	addl	%eax, %eax
 	subl	%eax, %edx
 	movl	%edx, -8(%rbp)
-	movl	-4(%rbp), %edx
+	movl	-8(%rbp), %edx
 	movl	%edx, %eax
 	sall	$2, %eax
 	addl	%edx, %eax
