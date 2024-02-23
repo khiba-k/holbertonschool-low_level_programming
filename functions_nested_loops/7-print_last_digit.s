@@ -11,45 +11,24 @@ print_last_digit:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	movl	%edi, -20(%rbp)
-	movl	-20(%rbp), %edx
-	movslq	%edx, %rax
+	movl	%edi, -4(%rbp)
+	movl	-4(%rbp), %ecx
+	movslq	%ecx, %rax
 	imulq	$1717986919, %rax, %rax
 	shrq	$32, %rax
 	sarl	$2, %eax
-	movl	%edx, %esi
+	movl	%ecx, %esi
 	sarl	$31, %esi
 	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
+	movl	%eax, %edx
+	movl	%edx, %eax
 	sall	$2, %eax
-	addl	%ecx, %eax
+	addl	%edx, %eax
 	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, -4(%rbp)
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	movl	%edx, %ecx
 	subl	%eax, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
-	movl	$0, %eax
-	leave
+	movl	%ecx, %edx
+	movl	%edx, %eax
+	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
