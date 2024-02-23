@@ -11,23 +11,23 @@ print_last_digit:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	movl	%edi, -4(%rbp)
-	movl	-4(%rbp), %ecx
-	movslq	%ecx, %rax
+	movl	%edi, -20(%rbp)
+	movl	-20(%rbp), %edx
+	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
 	shrq	$32, %rax
 	sarl	$2, %eax
-	movl	%ecx, %esi
+	movl	%edx, %esi
 	sarl	$31, %esi
 	subl	%esi, %eax
-	movl	%eax, %edx
-	movl	%edx, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
 	sall	$2, %eax
-	addl	%edx, %eax
+	addl	%ecx, %eax
 	addl	%eax, %eax
-	subl	%eax, %ecx
-	movl	%ecx, %edx
-	movl	%edx, %eax
+	subl	%eax, %edx
+	movl	%edx, -4(%rbp)
+	movl	-4(%rbp), %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
