@@ -11,6 +11,7 @@ print_last_digit:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
+	subq	$32, %rsp
 	movl	%edi, -20(%rbp)
 	movl	-20(%rbp), %edx
 	movslq	%edx, %rax
@@ -28,7 +29,11 @@ print_last_digit:
 	subl	%eax, %edx
 	movl	%edx, -4(%rbp)
 	movl	-4(%rbp), %eax
-	popq	%rbp
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	nop
+	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
