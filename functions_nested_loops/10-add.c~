@@ -1,0 +1,14 @@
+#include <main.h>
+
+/**
+ *add - return sum of two integers
+ *@a: variable name
+ *@b: variable name
+ *Return: end of function
+ */
+int add(int a, int b)
+{
+int sum = a + b;
+_putchar((sum % 10) + 10);
+return (0);
+}
