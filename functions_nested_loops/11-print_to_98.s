@@ -2,6 +2,8 @@
 	.text
 	.section	.rodata
 .LC0:
+	.string	"%d, "
+.LC1:
 	.string	"%d"
 	.text
 	.globl	print_to_98
@@ -25,10 +27,6 @@ print_to_98:
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movl	$44, %edi
-	call	_putchar@PLT
-	movl	$32, %edi
-	call	_putchar@PLT
 	subl	$1, -4(%rbp)
 .L2:
 	cmpl	$98, -4(%rbp)
@@ -41,10 +39,6 @@ print_to_98:
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movl	$44, %edi
-	call	_putchar@PLT
-	movl	$32, %edi
-	call	_putchar@PLT
 	addl	$1, -4(%rbp)
 .L4:
 	cmpl	$97, -4(%rbp)
@@ -53,7 +47,7 @@ print_to_98:
 	jne	.L7
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
-	leaq	.LC0(%rip), %rax
+	leaq	.LC1(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
