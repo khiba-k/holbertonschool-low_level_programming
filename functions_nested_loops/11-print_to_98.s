@@ -57,6 +57,8 @@ print_to_98:
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
+	movl	$10, %edi
+	call	putchar@PLT
 .L7:
 	nop
 	leave
