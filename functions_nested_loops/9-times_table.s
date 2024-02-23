@@ -15,7 +15,7 @@ times_table:
 	movl	$0, -12(%rbp)
 	jmp	.L2
 .L8:
-	movl	$0, -12(%rbp)
+	movl	$0, -8(%rbp)
 	jmp	.L3
 .L7:
 	movl	-12(%rbp), %eax
@@ -85,9 +85,9 @@ times_table:
 	movl	%eax, %edi
 	call	_putchar@PLT
 .L5:
-	addl	$1, -12(%rbp)
+	addl	$1, -8(%rbp)
 .L3:
-	cmpl	$9, -12(%rbp)
+	cmpl	$9, -8(%rbp)
 	jle	.L7
 	movl	$10, %edi
 	call	_putchar@PLT
