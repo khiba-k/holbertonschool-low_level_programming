@@ -32,7 +32,7 @@ print_last_digit:
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-	nop
+	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8
 	ret
