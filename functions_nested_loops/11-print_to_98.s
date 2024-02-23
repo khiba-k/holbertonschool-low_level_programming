@@ -13,9 +13,34 @@ print_to_98:
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
 	movl	%edi, -4(%rbp)
-	movl	$0, -4(%rbp)
-	jmp	.L2
-.L3:
+	cmpl	$97, -4(%rbp)
+	jle	.L8
+	jmp	.L3
+.L6:
+	cmpl	$98, -4(%rbp)
+	jne	.L4
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	subl	%eax, %edx
+	movl	%edx, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	jmp	.L5
+.L4:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -40,11 +65,67 @@ print_to_98:
 	call	_putchar@PLT
 	movl	$32, %edi
 	call	_putchar@PLT
-	addl	$1, -4(%rbp)
-.L2:
+.L5:
+	subl	$1, -4(%rbp)
+.L3:
+	cmpl	$97, -4(%rbp)
+	jg	.L6
+	jmp	.L12
+.L11:
 	cmpl	$98, -4(%rbp)
-	jle	.L3
-	nop
+	jne	.L9
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	movl	%edx, %ecx
+	subl	%eax, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	jmp	.L10
+.L9:
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	$2, %eax
+	movl	%edx, %esi
+	sarl	$31, %esi
+	subl	%esi, %eax
+	movl	%eax, %ecx
+	movl	%ecx, %eax
+	sall	$2, %eax
+	addl	%ecx, %eax
+	addl	%eax, %eax
+	subl	%eax, %edx
+	movl	%edx, %ecx
+	movl	%ecx, %eax
+	addl	$48, %eax
+	movsbl	%al, %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	movl	$44, %edi
+	call	_putchar@PLT
+	movl	$32, %edi
+	call	_putchar@PLT
+.L10:
+	addl	$1, -4(%rbp)
+.L8:
+	cmpl	$98, -4(%rbp)
+	jle	.L11
+.L12:
 	nop
 	leave
 	.cfi_def_cfa 7, 8
