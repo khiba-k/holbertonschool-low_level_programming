@@ -28,26 +28,9 @@ print_last_digit:
 	addl	%eax, %eax
 	subl	%eax, %edx
 	movl	%edx, -4(%rbp)
-	cmpl	$0, -20(%rbp)
+	cmpl	$0, -4(%rbp)
 	jns	.L2
-	movl	-20(%rbp), %eax
-	negl	%eax
-	movl	%eax, %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %ecx
-	sarl	$31, %ecx
-	subl	%ecx, %eax
-	movl	%eax, -4(%rbp)
-	movl	-4(%rbp), %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, -4(%rbp)
+	negl	-4(%rbp)
 .L2:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
@@ -62,8 +45,8 @@ print_last_digit:
 	sall	$2, %eax
 	addl	%ecx, %eax
 	addl	%eax, %eax
-	subl	%eax, %edx
 	movl	%edx, %ecx
+	subl	%eax, %ecx
 	movl	%ecx, %eax
 	addl	$48, %eax
 	movsbl	%al, %eax
