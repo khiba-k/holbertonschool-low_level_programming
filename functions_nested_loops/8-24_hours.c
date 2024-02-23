@@ -26,7 +26,7 @@ _putchar('0' + sm);
 _putchar('\n');
 if (dh == 2 && sh == 3 && dm == 5 && sm == 9)
 {
-return ;
+return;
 }
 }
 }
