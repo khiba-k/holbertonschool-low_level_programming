@@ -27,7 +27,7 @@ mul:
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movl	$0, %eax
+	nop
 	leave
 	.cfi_def_cfa 7, 8
 	ret
