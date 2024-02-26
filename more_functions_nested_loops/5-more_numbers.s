@@ -12,13 +12,13 @@ more_numbers:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movl	$1, -4(%rbp)
+	movl	$1, -8(%rbp)
 	jmp	.L2
 .L5:
-	movl	$0, -8(%rbp)
+	movl	$0, -4(%rbp)
 	jmp	.L3
 .L4:
-	movl	-8(%rbp), %edx
+	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
 	shrq	$32, %rax
@@ -38,15 +38,15 @@ more_numbers:
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-	addl	$1, -8(%rbp)
+	addl	$1, -4(%rbp)
 .L3:
-	cmpl	$14, -8(%rbp)
+	cmpl	$14, -4(%rbp)
 	jle	.L4
 	movl	$10, %edi
 	call	_putchar@PLT
-	addl	$1, -4(%rbp)
+	addl	$1, -8(%rbp)
 .L2:
-	cmpl	$10, -4(%rbp)
+	cmpl	$10, -8(%rbp)
 	jle	.L5
 	nop
 	nop
