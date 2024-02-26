@@ -13,6 +13,7 @@ print_line:
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
 	movl	%edi, -4(%rbp)
+	movl	$95, -4(%rbp)
 	jmp	.L2
 .L4:
 	cmpl	$9, -4(%rbp)

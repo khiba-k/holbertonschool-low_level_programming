@@ -6,6 +6,7 @@
  */
 void print_line(int n)
 {
+n = '_';
 for (n = n; n > 0; n--)
 {
 if (n > 9)
