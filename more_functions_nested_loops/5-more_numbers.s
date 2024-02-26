@@ -12,8 +12,6 @@ more_numbers:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movl	-8(%rbp), %eax
-	movl	%eax, -4(%rbp)
 	movl	$1, -4(%rbp)
 	jmp	.L2
 .L5:
