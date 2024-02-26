@@ -9,6 +9,6 @@
 int mul(int a, int b)
 {
 int product = a * b;
-printf("%d", product);
+printf("%d\n", product);
 return (0);
 }

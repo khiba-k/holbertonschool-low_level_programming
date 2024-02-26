@@ -2,7 +2,7 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%d"
+	.string	"%d\n"
 	.text
 	.globl	mul
 	.type	mul, @function
