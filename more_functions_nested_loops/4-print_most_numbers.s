@@ -14,7 +14,11 @@ print_most_numbers:
 	subq	$16, %rsp
 	movl	$0, -4(%rbp)
 	jmp	.L2
-.L4:
+.L6:
+	cmpl	$2, -4(%rbp)
+	je	.L7
+	cmpl	$4, -4(%rbp)
+	je	.L7
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -35,16 +39,16 @@ print_most_numbers:
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-.L3:
-	cmpl	$2, -4(%rbp)
-	jne	.L4
-	cmpl	$4, -4(%rbp)
-	jne	.L4
+	jmp	.L5
+.L7:
+	nop
+.L5:
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$9, -4(%rbp)
-	jle	.L3
-	nop
+	jle	.L6
+	movl	$10, %edi
+	call	_putchar@PLT
 	nop
 	leave
 	.cfi_def_cfa 7, 8
