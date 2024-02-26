@@ -14,9 +14,12 @@ print_diagonal:
 	subq	$16, %rsp
 	movl	%edi, -4(%rbp)
 	jmp	.L2
-.L3:
+.L4:
+	cmpl	$0, -4(%rbp)
+	je	.L3
 	movl	$32, %edi
 	call	_putchar@PLT
+.L3:
 	movl	$92, %edi
 	call	_putchar@PLT
 	movl	$10, %edi
@@ -24,7 +27,7 @@ print_diagonal:
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$0, -4(%rbp)
-	jg	.L3
+	jg	.L4
 	movl	$10, %edi
 	call	_putchar@PLT
 	nop
