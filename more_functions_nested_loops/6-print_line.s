@@ -15,27 +15,7 @@ print_line:
 	movl	%edi, -4(%rbp)
 	jmp	.L2
 .L3:
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
-	movl	$10, %edi
+	movl	$95, %edi
 	call	_putchar@PLT
 	subl	$1, -4(%rbp)
 .L2:
