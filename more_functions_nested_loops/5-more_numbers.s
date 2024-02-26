@@ -18,8 +18,8 @@ more_numbers:
 	movl	$0, -4(%rbp)
 	jmp	.L3
 .L5:
-	cmpl	$0, -4(%rbp)
-	jg	.L4
+	cmpl	$9, -4(%rbp)
+	jle	.L4
 	movl	-4(%rbp), %eax
 	movslq	%eax, %rdx
 	imulq	$1717986919, %rdx, %rdx
@@ -33,6 +33,7 @@ more_numbers:
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
+.L4:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -53,7 +54,6 @@ more_numbers:
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-.L4:
 	addl	$1, -4(%rbp)
 .L3:
 	cmpl	$14, -4(%rbp)
