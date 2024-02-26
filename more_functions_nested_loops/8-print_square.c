@@ -9,13 +9,11 @@ int c;
 int i = size;
 if (size > 0)
 {
-for (; i > 0; i--)
+for (i = size; i > 0; i--)
 {
 for (c = 0; c < size; c++)
-{
 _putchar('#');
 _putchar('\n');
-}
 }
 }
 else
