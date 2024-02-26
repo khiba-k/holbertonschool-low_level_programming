@@ -20,19 +20,6 @@ more_numbers:
 .L5:
 	cmpl	$14, -4(%rbp)
 	jg	.L4
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	imulq	$1717986919, %rdx, %rdx
-	shrq	$32, %rdx
-	sarl	$2, %edx
-	sarl	$31, %eax
-	movl	%eax, %ecx
-	movl	%edx, %eax
-	subl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -46,8 +33,8 @@ more_numbers:
 	sall	$2, %eax
 	addl	%ecx, %eax
 	addl	%eax, %eax
+	subl	%eax, %edx
 	movl	%edx, %ecx
-	subl	%eax, %ecx
 	movl	%ecx, %eax
 	addl	$48, %eax
 	movsbl	%al, %eax
