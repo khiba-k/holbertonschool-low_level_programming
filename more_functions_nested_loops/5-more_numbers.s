@@ -18,8 +18,8 @@ more_numbers:
 	movl	$0, -4(%rbp)
 	jmp	.L3
 .L5:
-	cmpl	$9, -4(%rbp)
-	jle	.L4
+	cmpl	$14, -4(%rbp)
+	jg	.L4
 	movl	-4(%rbp), %eax
 	movslq	%eax, %rdx
 	imulq	$1717986919, %rdx, %rdx
