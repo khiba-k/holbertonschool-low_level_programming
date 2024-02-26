@@ -12,9 +12,9 @@ _isdigit:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movl	%edi, -4(%rbp)
-	cmpl	$0, -4(%rbp)
-	js	.L2
-	cmpl	$9, -4(%rbp)
+	cmpl	$47, -4(%rbp)
+	jle	.L2
+	cmpl	$57, -4(%rbp)
 	jg	.L2
 	movl	$1, %eax
 	jmp	.L3
