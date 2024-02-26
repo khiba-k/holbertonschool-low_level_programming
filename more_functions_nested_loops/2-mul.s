@@ -2,7 +2,7 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"%d\n"
+	.string	"%d * %d: %d\n"
 	.text
 	.globl	mul
 	.type	mul, @function
@@ -15,11 +15,15 @@ mul:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	%edi, -4(%rbp)
-	movl	%esi, -8(%rbp)
-	movl	-4(%rbp), %eax
-	imull	-8(%rbp), %eax
+	subq	$32, %rsp
+	movl	%edi, -20(%rbp)
+	movl	%esi, -24(%rbp)
+	movl	-20(%rbp), %eax
+	imull	-24(%rbp), %eax
+	movl	%eax, -4(%rbp)
+	movl	-4(%rbp), %ecx
+	movl	-24(%rbp), %edx
+	movl	-20(%rbp), %eax
 	movl	%eax, %esi
 	leaq	.LC0(%rip), %rax
 	movq	%rax, %rdi
