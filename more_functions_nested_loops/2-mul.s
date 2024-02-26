@@ -1,5 +1,9 @@
 	.file	"2-mul.c"
 	.text
+	.section	.rodata
+.LC0:
+	.string	"%d"
+	.text
 	.globl	mul
 	.type	mul, @function
 mul:
@@ -17,26 +21,12 @@ mul:
 	movl	-20(%rbp), %eax
 	imull	-24(%rbp), %eax
 	movl	%eax, -4(%rbp)
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
-	imulq	$1717986919, %rax, %rax
-	shrq	$32, %rax
-	sarl	$2, %eax
-	movl	%edx, %esi
-	sarl	$31, %esi
-	subl	%esi, %eax
-	movl	%eax, %ecx
-	movl	%ecx, %eax
-	sall	$2, %eax
-	addl	%ecx, %eax
-	addl	%eax, %eax
-	subl	%eax, %edx
-	movl	%edx, %ecx
-	movl	%ecx, %eax
-	addl	$48, %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8

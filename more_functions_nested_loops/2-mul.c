@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  *mul - name of function
  *@a: name of paramter
@@ -9,6 +9,6 @@
 int mul(int a, int b)
 {
 int product = a * b;
-_putchar((product % 10) + '0');
+printf("%d", product);
 return (0);
 }
