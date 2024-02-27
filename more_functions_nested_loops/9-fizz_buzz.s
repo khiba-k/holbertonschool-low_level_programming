@@ -108,12 +108,12 @@ main:
 	movl	$0, %eax
 	call	printf@PLT
 .L4:
-	movl	$10, %edi
-	call	putchar@PLT
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$100, -4(%rbp)
 	jle	.L7
+	movl	$10, %edi
+	call	putchar@PLT
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8
