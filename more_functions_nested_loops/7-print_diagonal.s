@@ -14,36 +14,40 @@ print_diagonal:
 	subq	$32, %rsp
 	movl	%edi, -20(%rbp)
 	movb	$92, -9(%rbp)
+	cmpl	$0, -20(%rbp)
+	jle	.L2
 	movl	$0, -4(%rbp)
-	jmp	.L2
-.L7:
-	movl	$0, -8(%rbp)
 	jmp	.L3
-.L6:
+.L8:
+	movl	$0, -8(%rbp)
+	jmp	.L4
+.L7:
 	movl	-4(%rbp), %eax
 	cmpl	-8(%rbp), %eax
-	jne	.L4
+	jne	.L5
 	movsbl	-9(%rbp), %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-	jmp	.L5
-.L4:
+	jmp	.L6
+.L5:
 	movl	$32, %edi
 	call	_putchar@PLT
-.L5:
+.L6:
 	addl	$1, -8(%rbp)
-.L3:
+.L4:
 	movl	-8(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jl	.L6
-	movl	$10, %edi
-	call	_putchar@PLT
+	jl	.L7
 	addl	$1, -20(%rbp)
-.L2:
+.L3:
 	movl	-4(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jl	.L7
-	nop
+	jl	.L8
+	jmp	.L10
+.L2:
+	movl	$10, %edi
+	call	_putchar@PLT
+.L10:
 	nop
 	leave
 	.cfi_def_cfa 7, 8
