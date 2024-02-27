@@ -31,5 +31,6 @@ putchar((num % 10) + '0');
 putchar(' ');
 }
 }
+putchar('\n');
 return (0);
 }

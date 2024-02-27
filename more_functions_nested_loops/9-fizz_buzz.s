@@ -139,6 +139,8 @@ main:
 .L2:
 	cmpl	$100, -4(%rbp)
 	jle	.L8
+	movl	$10, %edi
+	call	putchar@PLT
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8
