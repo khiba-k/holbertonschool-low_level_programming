@@ -6,7 +6,6 @@
  */
 void print_diagonal(int n)
 {
-char slash = '\\';
 int i;
 int j;
 if (n > 0)
