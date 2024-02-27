@@ -13,33 +13,36 @@ print_square:
 	.cfi_def_cfa_register 6
 	subq	$32, %rsp
 	movl	%edi, -20(%rbp)
-	movl	-20(%rbp), %eax
-	movl	%eax, -4(%rbp)
-	cmpl	$0, -20(%rbp)
-	jle	.L2
+	movb	$35, -9(%rbp)
+	movl	$0, -8(%rbp)
+	jmp	.L2
+.L7:
+	movl	$0, -4(%rbp)
 	jmp	.L3
 .L6:
-	movl	$0, -8(%rbp)
-	jmp	.L4
-.L5:
-	movl	$35, %edi
+	movl	-8(%rbp), %eax
+	cmpl	-4(%rbp), %eax
+	jne	.L4
+	movl	$99, %edi
 	call	_putchar@PLT
+	jmp	.L5
+.L4:
+	movl	$99, %edi
+	call	_putchar@PLT
+.L5:
+	addl	$1, -4(%rbp)
+.L3:
+	movl	-4(%rbp), %eax
+	cmpl	-20(%rbp), %eax
+	jl	.L6
 	movl	$10, %edi
 	call	_putchar@PLT
 	addl	$1, -8(%rbp)
-.L4:
+.L2:
 	movl	-8(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jl	.L5
-	subl	$1, -4(%rbp)
-.L3:
-	cmpl	$0, -4(%rbp)
-	jg	.L6
-	jmp	.L8
-.L2:
-	movl	$10, %edi
-	call	_putchar@PLT
-.L8:
+	jl	.L7
+	nop
 	nop
 	leave
 	.cfi_def_cfa 7, 8

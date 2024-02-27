@@ -5,19 +5,22 @@
  */
 void print_square(int size)
 {
-int c;
-int i = size;
-if (size > 0)
+char c = '#';
+int i;
+int j;
+for (i = 0; i < size; i++)
 {
-for (i = size; i > 0; i--)
+for (j = 0; j < size; j++)
 {
-for (c = 0; c < size; c++)
-_putchar('#');
-_putchar('\n');
-}
+if (i == j)
+{
+_putchar('c');
 }
 else
 {
+_putchar('c');
+}
+}
 _putchar('\n');
 }
 }
