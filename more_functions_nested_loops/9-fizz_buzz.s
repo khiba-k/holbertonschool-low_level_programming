@@ -4,9 +4,9 @@
 .LC0:
 	.string	"FizzBuzz "
 .LC1:
-	.string	"Fizz "
-.LC2:
 	.string	"Buzz "
+.LC2:
+	.string	"Fizz "
 .LC3:
 	.string	"%d "
 	.text
@@ -24,7 +24,7 @@ main:
 	subq	$16, %rsp
 	movl	$1, -4(%rbp)
 	jmp	.L2
-.L7:
+.L8:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1431655766, %rax, %rax
@@ -62,26 +62,6 @@ main:
 .L3:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
-	imulq	$1431655766, %rax, %rax
-	shrq	$32, %rax
-	movl	%edx, %ecx
-	sarl	$31, %ecx
-	subl	%ecx, %eax
-	movl	%eax, %ecx
-	addl	%ecx, %ecx
-	addl	%eax, %ecx
-	movl	%edx, %eax
-	subl	%ecx, %eax
-	testl	%eax, %eax
-	jne	.L5
-	leaq	.LC1(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	jmp	.L4
-.L5:
-	movl	-4(%rbp), %edx
-	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
 	shrq	$32, %rax
 	sarl	%eax
@@ -94,13 +74,41 @@ main:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	testl	%eax, %eax
+	jne	.L5
+	cmpl	$100, -4(%rbp)
 	jne	.L6
-	leaq	.LC2(%rip), %rax
+	leaq	.LC1(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	jmp	.L4
 .L6:
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	jmp	.L4
+.L5:
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1431655766, %rax, %rax
+	shrq	$32, %rax
+	movl	%edx, %ecx
+	sarl	$31, %ecx
+	subl	%ecx, %eax
+	movl	%eax, %ecx
+	addl	%ecx, %ecx
+	addl	%eax, %ecx
+	movl	%edx, %eax
+	subl	%ecx, %eax
+	testl	%eax, %eax
+	jne	.L7
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	jmp	.L4
+.L7:
 	movl	-4(%rbp), %eax
 	movl	%eax, %esi
 	leaq	.LC3(%rip), %rax
@@ -111,7 +119,7 @@ main:
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$100, -4(%rbp)
-	jle	.L7
+	jle	.L8
 	movl	$10, %edi
 	call	putchar@PLT
 	movl	$0, %eax
