@@ -11,22 +11,15 @@ int i;
 int j;
 if (n > 0)
 {
-  for (i = 0; i < n; n++)
-  {
-    for (j = 0; j < n; j++)
-    {
-     if (i == j)
-     {
-     _putchar(slash);
-     }
-    else
-    {
-    _putchar(' ');
-    }
-     _putchar('\\');
-     _putchar('\n');
-   }
-  }
+for (i = 0; i < n; n++)
+{
+for (j = 0; j < i; j++)
+{
+_putchar(' ');
+}
+_putchar('\\');
+_putchar('\n');
+}
 }
 else
 {

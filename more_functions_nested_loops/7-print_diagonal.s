@@ -18,36 +18,31 @@ print_diagonal:
 	jle	.L2
 	movl	$0, -4(%rbp)
 	jmp	.L3
-.L8:
+.L6:
 	movl	$0, -8(%rbp)
 	jmp	.L4
-.L7:
-	movl	-4(%rbp), %eax
-	cmpl	-8(%rbp), %eax
-	jne	.L5
-	movsbl	-9(%rbp), %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
-	jmp	.L6
 .L5:
 	movl	$32, %edi
 	call	_putchar@PLT
-.L6:
 	addl	$1, -8(%rbp)
 .L4:
 	movl	-8(%rbp), %eax
-	cmpl	-20(%rbp), %eax
-	jl	.L7
+	cmpl	-4(%rbp), %eax
+	jl	.L5
+	movl	$92, %edi
+	call	_putchar@PLT
+	movl	$10, %edi
+	call	_putchar@PLT
 	addl	$1, -20(%rbp)
 .L3:
 	movl	-4(%rbp), %eax
 	cmpl	-20(%rbp), %eax
-	jl	.L8
-	jmp	.L10
+	jl	.L6
+	jmp	.L8
 .L2:
 	movl	$10, %edi
 	call	_putchar@PLT
-.L10:
+.L8:
 	nop
 	leave
 	.cfi_def_cfa 7, 8
