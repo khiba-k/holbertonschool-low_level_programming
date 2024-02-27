@@ -2,11 +2,11 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"FIZZ "
+	.string	"FizzBuzz "
 .LC1:
-	.string	"BUZZ "
+	.string	"Fizz "
 .LC2:
-	.string	"FIZZBUZZ "
+	.string	"Buzz "
 	.text
 	.globl	main
 	.type	main, @function
@@ -37,12 +37,6 @@ main:
 	subl	%ecx, %eax
 	testl	%eax, %eax
 	jne	.L3
-	leaq	.LC0(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	jmp	.L4
-.L3:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -57,13 +51,13 @@ main:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	testl	%eax, %eax
-	jne	.L5
-	leaq	.LC1(%rip), %rax
+	jne	.L3
+	leaq	.LC0(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	jmp	.L4
-.L5:
+.L3:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1431655766, %rax, %rax
@@ -77,7 +71,13 @@ main:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	testl	%eax, %eax
-	jne	.L6
+	jne	.L5
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	jmp	.L4
+.L5:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1717986919, %rax, %rax
