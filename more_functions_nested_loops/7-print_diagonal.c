@@ -6,14 +6,22 @@
  */
 void print_diagonal(int n)
 {
-for (; n > 0; n++)
+char slash = '\\';
+int i;
+int j;
+for (i = 0; i < n; n++)
 {
-if (n != 0)
+for (j = 0; j < n; j++)
+{
+if (i == j)
+{
+_putchar(slash);
+}
+else
 {
 _putchar(' ');
 }
-_putchar('\\');
-_putchar('\n');
 }
 _putchar('\n');
+}
 }

@@ -11,25 +11,39 @@ print_diagonal:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	%edi, -4(%rbp)
+	subq	$32, %rsp
+	movl	%edi, -20(%rbp)
+	movb	$92, -9(%rbp)
+	movl	$0, -4(%rbp)
 	jmp	.L2
+.L7:
+	movl	$0, -8(%rbp)
+	jmp	.L3
+.L6:
+	movl	-4(%rbp), %eax
+	cmpl	-8(%rbp), %eax
+	jne	.L4
+	movsbl	-9(%rbp), %eax
+	movl	%eax, %edi
+	call	_putchar@PLT
+	jmp	.L5
 .L4:
-	cmpl	$0, -4(%rbp)
-	je	.L3
 	movl	$32, %edi
 	call	_putchar@PLT
+.L5:
+	addl	$1, -8(%rbp)
 .L3:
-	movl	$92, %edi
-	call	_putchar@PLT
+	movl	-8(%rbp), %eax
+	cmpl	-20(%rbp), %eax
+	jl	.L6
 	movl	$10, %edi
 	call	_putchar@PLT
-	addl	$1, -4(%rbp)
+	addl	$1, -20(%rbp)
 .L2:
-	cmpl	$0, -4(%rbp)
-	jg	.L4
-	movl	$10, %edi
-	call	_putchar@PLT
+	movl	-4(%rbp), %eax
+	cmpl	-20(%rbp), %eax
+	jl	.L7
+	nop
 	nop
 	leave
 	.cfi_def_cfa 7, 8
