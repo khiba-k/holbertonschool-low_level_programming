@@ -23,12 +23,7 @@ printf("Buzz ");
 }
 else
 {
-if (num > 9)
-{
-putchar(num / 10 + '0');
-}
-putchar((num % 10) + '0');
-putchar(' ');
+printf("%d", num);
 }
 }
 return (0);
