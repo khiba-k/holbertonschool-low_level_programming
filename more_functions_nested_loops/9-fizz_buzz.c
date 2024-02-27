@@ -11,27 +11,15 @@ for (num = 1; num < 101; num++)
 {
 if (num % 3 == 0)
 {
-printf("FIZZ");
+printf("FIZZ ");
 }
 else if (num % 5 == 0)
 {
-putchar('B');
-putchar('U');
-putchar('Z');
-putchar('Z');
-putchar(' ');
+printf("BUZZ ");
 }
 else if (num % 3 == 0 && num % 5 == 0)
 {
-putchar('F');
-putchar('I');
-putchar('Z');
-putchar('Z');
-putchar('B');
-putchar('U');
-putchar('Z');
-putchar('Z');
-putchar(' ');
+printf("FIZZBUZZ ");
 }
 else
 {

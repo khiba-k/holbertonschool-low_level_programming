@@ -2,7 +2,11 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"FIZZ"
+	.string	"FIZZ "
+.LC1:
+	.string	"BUZZ "
+.LC2:
+	.string	"FIZZBUZZ "
 	.text
 	.globl	main
 	.type	main, @function
@@ -54,16 +58,10 @@ main:
 	subl	%ecx, %eax
 	testl	%eax, %eax
 	jne	.L5
-	movl	$66, %edi
-	call	putchar@PLT
-	movl	$85, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$32, %edi
-	call	putchar@PLT
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	jmp	.L4
 .L5:
 	movl	-4(%rbp), %edx
@@ -95,24 +93,10 @@ main:
 	subl	%ecx, %eax
 	testl	%eax, %eax
 	jne	.L6
-	movl	$70, %edi
-	call	putchar@PLT
-	movl	$73, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$66, %edi
-	call	putchar@PLT
-	movl	$85, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$32, %edi
-	call	putchar@PLT
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	jmp	.L4
 .L6:
 	cmpl	$9, -4(%rbp)
