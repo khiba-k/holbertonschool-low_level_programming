@@ -1,5 +1,9 @@
 	.file	"9-fizz_buzz.c"
 	.text
+	.section	.rodata
+.LC0:
+	.string	"FIZZ"
+	.text
 	.globl	main
 	.type	main, @function
 main:
@@ -14,7 +18,7 @@ main:
 	subq	$16, %rsp
 	movl	$1, -4(%rbp)
 	jmp	.L2
-.L7:
+.L8:
 	movl	-4(%rbp), %edx
 	movslq	%edx, %rax
 	imulq	$1431655766, %rax, %rax
@@ -29,16 +33,10 @@ main:
 	subl	%ecx, %eax
 	testl	%eax, %eax
 	jne	.L3
-	movl	$70, %edi
-	call	putchar@PLT
-	movl	$73, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$90, %edi
-	call	putchar@PLT
-	movl	$32, %edi
-	call	putchar@PLT
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	jmp	.L4
 .L3:
 	movl	-4(%rbp), %edx
@@ -68,8 +66,57 @@ main:
 	call	putchar@PLT
 	jmp	.L4
 .L5:
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1431655766, %rax, %rax
+	shrq	$32, %rax
+	movl	%edx, %ecx
+	sarl	$31, %ecx
+	subl	%ecx, %eax
+	movl	%eax, %ecx
+	addl	%ecx, %ecx
+	addl	%eax, %ecx
+	movl	%edx, %eax
+	subl	%ecx, %eax
+	testl	%eax, %eax
+	jne	.L6
+	movl	-4(%rbp), %edx
+	movslq	%edx, %rax
+	imulq	$1717986919, %rax, %rax
+	shrq	$32, %rax
+	sarl	%eax
+	movl	%edx, %ecx
+	sarl	$31, %ecx
+	subl	%ecx, %eax
+	movl	%eax, %ecx
+	sall	$2, %ecx
+	addl	%eax, %ecx
+	movl	%edx, %eax
+	subl	%ecx, %eax
+	testl	%eax, %eax
+	jne	.L6
+	movl	$70, %edi
+	call	putchar@PLT
+	movl	$73, %edi
+	call	putchar@PLT
+	movl	$90, %edi
+	call	putchar@PLT
+	movl	$90, %edi
+	call	putchar@PLT
+	movl	$66, %edi
+	call	putchar@PLT
+	movl	$85, %edi
+	call	putchar@PLT
+	movl	$90, %edi
+	call	putchar@PLT
+	movl	$90, %edi
+	call	putchar@PLT
+	movl	$32, %edi
+	call	putchar@PLT
+	jmp	.L4
+.L6:
 	cmpl	$9, -4(%rbp)
-	jle	.L6
+	jle	.L7
 	movl	-4(%rbp), %eax
 	movslq	%eax, %rdx
 	imulq	$1717986919, %rdx, %rdx
@@ -82,7 +129,7 @@ main:
 	addl	$48, %eax
 	movl	%eax, %edi
 	call	putchar@PLT
-.L6:
+.L7:
 	movl	-4(%rbp), %ecx
 	movslq	%ecx, %rax
 	imulq	$1717986919, %rax, %rax
@@ -107,7 +154,7 @@ main:
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$100, -4(%rbp)
-	jle	.L7
+	jle	.L8
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8
