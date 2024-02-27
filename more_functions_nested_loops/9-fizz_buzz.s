@@ -8,7 +8,7 @@
 .LC2:
 	.string	"Buzz "
 .LC3:
-	.string	"%d"
+	.string	"%d "
 	.text
 	.globl	main
 	.type	main, @function
@@ -108,6 +108,8 @@ main:
 	movl	$0, %eax
 	call	printf@PLT
 .L4:
+	movl	$10, %edi
+	call	putchar@PLT
 	addl	$1, -4(%rbp)
 .L2:
 	cmpl	$100, -4(%rbp)
