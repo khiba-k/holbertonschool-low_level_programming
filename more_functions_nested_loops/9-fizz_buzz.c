@@ -17,7 +17,7 @@ else if (num % 5 == 0)
 {
 if (num == 100)
 {
-printf("Buzz ");
+printf("Buzz");
 }
 else
 printf("Buzz ");
