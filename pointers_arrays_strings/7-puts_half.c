@@ -19,11 +19,11 @@ for (len = i / 2; str[len] != '\0'; len++)
 _putchar(str[len]);
 }
 }
-else if (len % 2 != 0)
+else if (len % 2)
 {
 for (m = (len - 1) / 2; m <= len - 1; m++)
 {
-_putchar(str[m]);
+_putchar(str[m + 1]);
 }
 }
 _putchar('\n');
