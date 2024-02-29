@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  *puts_half - function prints half of a string
- *str: parameter name
+ *@str: parameter name
  */
 void puts_half(char *str)
 {
 int i = 0;
 int len = 0;
-int m;
+int m = 0;
 while (str[i] != '\0')
 {
 i++;
