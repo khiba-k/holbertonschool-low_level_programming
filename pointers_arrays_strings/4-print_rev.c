@@ -6,17 +6,17 @@
  */
 void print_rev(char *s)
 {
-int i = 0;
-int j;
-int k;
-while (s[i] != '\0')
+int length = 0, length1, length2, actlength = n - 1;
+int arr[100];
+for (length1 = 0, length2 = 0; length1 < n; length1++, length2++)
+arr[length1] = a[length2];
+if (n > 0)
 {
-i++;
-}
-k = i;
-for (j = k - 1; j >= 0; j--)
+while (length < n)
 {
-_putchar(s[j]);
+a[length] = arr[actlength];
+actlength--;
+length++;
 }
-_putchar('\n');
+}
 }
