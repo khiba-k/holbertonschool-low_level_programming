@@ -35,6 +35,11 @@ _strcpy:
 	movzbl	(%rax), %eax
 	testb	%al, %al
 	jne	.L3
+	movl	-4(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	-24(%rbp), %rax
+	addq	%rdx, %rax
+	movb	$0, (%rax)
 	movq	-24(%rbp), %rax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
