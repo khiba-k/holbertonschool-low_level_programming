@@ -1,5 +1,5 @@
 #include <unistd.h>
-11;rgb:2b2b/2b2b/2b2bint _putchar(char c);
+_putchar(char c);
 
 
 void reset_to_98(int *n);
