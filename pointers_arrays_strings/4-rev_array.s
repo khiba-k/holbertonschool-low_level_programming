@@ -14,12 +14,16 @@ reverse_array:
 	subq	$32, %rsp
 	movq	%rdi, -24(%rbp)
 	movl	%esi, -28(%rbp)
+	movl	$0, -8(%rbp)
+	jmp	.L2
+.L5:
+	addl	$1, -28(%rbp)
 	movl	-28(%rbp), %eax
 	subl	$1, %eax
 	movl	%eax, -4(%rbp)
-	jmp	.L2
+	jmp	.L3
 .L4:
-	movl	-4(%rbp), %eax
+	movl	-8(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
 	movq	-24(%rbp), %rax
@@ -29,24 +33,26 @@ reverse_array:
 	movl	%eax, %edi
 	call	_putchar@PLT
 	subl	$1, -4(%rbp)
+.L3:
+	movl	-4(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	movq	-24(%rbp), %rax
+	addq	%rdx, %rax
+	movl	(%rax), %eax
+	testl	%eax, %eax
+	jns	.L4
+	addl	$1, -8(%rbp)
 .L2:
-	movl	-4(%rbp), %eax
+	movl	-8(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
 	movq	-24(%rbp), %rax
 	addq	%rdx, %rax
 	movl	(%rax), %eax
 	testl	%eax, %eax
-	js	.L5
-	movl	-4(%rbp), %eax
-	cltq
-	leaq	0(,%rax,4), %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movl	(%rax), %eax
-	testl	%eax, %eax
-	jne	.L4
-.L5:
+	jne	.L5
+	nop
 	nop
 	leave
 	.cfi_def_cfa 7, 8
