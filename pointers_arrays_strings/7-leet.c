@@ -6,21 +6,20 @@
  * Return: returns encoded string
  */
 
-char *leet(char *str)
+char *leet(char *s)
 {
-int i;
-for (i = 0; str[i] != '\0'; i++)
+char *r = s;
+char a[] = { 'a', 'e', 'o', 't', 'l' };
+char n[] = { 4, 3, 0, 7, 1 };
+int i = 0;
+while (*s)
 {
-while (str[i] == 'a' || str[i] == 'A')
-str[i] = '4';
-while (str[i] == 'e' || str[i] == 'E')
-str[i] = '3';
-while (str[i] == 'o' || str[i] == 'O')
-str[i] = '0';
-while (str[i] == 't' || str[i] == 'T')
-str[i] = '7';
-while (str[i] == 'l' || str[i] == 'L')
-str[i] = '1';
+for (i = 0; i < 5; i++)
+{
+if (*s == a[i] || *s == a[i] - 32)
+*s = n[i] + '0';
 }
-return (str);
+s++;
+}
+return (r);
 }

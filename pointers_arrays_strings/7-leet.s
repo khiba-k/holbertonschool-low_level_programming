@@ -11,129 +11,66 @@ leet:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	movq	%rdi, -24(%rbp)
-	movl	$0, -4(%rbp)
+	subq	$64, %rsp
+	movq	%rdi, -56(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	movq	-56(%rbp), %rax
+	movq	%rax, -32(%rbp)
+	movl	$1953457505, -18(%rbp)
+	movb	$108, -14(%rbp)
+	movl	$117441284, -13(%rbp)
+	movb	$1, -9(%rbp)
+	movl	$0, -36(%rbp)
 	jmp	.L2
-.L4:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movb	$52, (%rax)
-.L3:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$97, %al
-	je	.L4
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$65, %al
-	je	.L4
-	jmp	.L5
-.L6:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movb	$51, (%rax)
-.L5:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$101, %al
-	je	.L6
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$69, %al
-	je	.L6
-	jmp	.L7
-.L8:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movb	$48, (%rax)
 .L7:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
+	movl	$0, -36(%rbp)
+	jmp	.L3
+.L6:
+	movq	-56(%rbp), %rax
+	movzbl	(%rax), %edx
+	movl	-36(%rbp), %eax
+	cltq
+	movzbl	-18(%rbp,%rax), %eax
+	cmpb	%al, %dl
+	je	.L4
+	movq	-56(%rbp), %rax
 	movzbl	(%rax), %eax
-	cmpb	$111, %al
-	je	.L8
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$79, %al
-	je	.L8
-	jmp	.L9
-.L10:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movb	$55, (%rax)
-.L9:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$116, %al
-	je	.L10
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$84, %al
-	je	.L10
-	jmp	.L11
-.L12:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movb	$49, (%rax)
-.L11:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$108, %al
-	je	.L12
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movzbl	(%rax), %eax
-	cmpb	$76, %al
-	je	.L12
-	addl	$1, -4(%rbp)
+	movsbl	%al, %edx
+	movl	-36(%rbp), %eax
+	cltq
+	movzbl	-18(%rbp,%rax), %eax
+	movsbl	%al, %eax
+	subl	$32, %eax
+	cmpl	%eax, %edx
+	jne	.L5
+.L4:
+	movl	-36(%rbp), %eax
+	cltq
+	movzbl	-13(%rbp,%rax), %eax
+	addl	$48, %eax
+	movl	%eax, %edx
+	movq	-56(%rbp), %rax
+	movb	%dl, (%rax)
+.L5:
+	addl	$1, -36(%rbp)
+.L3:
+	cmpl	$4, -36(%rbp)
+	jle	.L6
+	addq	$1, -56(%rbp)
 .L2:
-	movl	-4(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
+	movq	-56(%rbp), %rax
 	movzbl	(%rax), %eax
 	testb	%al, %al
-	jne	.L3
-	movq	-24(%rbp), %rax
-	popq	%rbp
+	jne	.L7
+	movq	-32(%rbp), %rax
+	movq	-8(%rbp), %rdx
+	subq	%fs:40, %rdx
+	je	.L9
+	call	__stack_chk_fail@PLT
+.L9:
+	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
