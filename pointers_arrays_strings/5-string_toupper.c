@@ -7,15 +7,15 @@
  */
 char *string_toupper(char *s)
 {
-int i = 0, len;
-while (s[len])
+int i = 0, j;
+while (s[i])
 {
-for (i = 97; i < 123; i++)
+for (j = 97; j < 123; j++)
 {
-if (s[len] == i)
-s[len] = i - 32;
+if (s[i] == j)
+s[i] = j - 32;
 }
-len++;
+i++;
 }
 return (s);
 }
