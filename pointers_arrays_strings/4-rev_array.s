@@ -11,49 +11,61 @@ reverse_array:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$32, %rsp
-	movq	%rdi, -24(%rbp)
-	movl	%esi, -28(%rbp)
-	movl	$0, -8(%rbp)
-	jmp	.L2
-.L5:
-	addl	$1, -28(%rbp)
-	movl	-28(%rbp), %eax
+	subq	$448, %rsp
+	movq	%rdi, -440(%rbp)
+	movl	%esi, -444(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	movl	$0, -432(%rbp)
+	movl	-444(%rbp), %eax
 	subl	$1, %eax
-	movl	%eax, -4(%rbp)
-	jmp	.L3
-.L4:
-	movl	-8(%rbp), %eax
-	cltq
-	leaq	0(,%rax,4), %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movl	(%rax), %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
-	call	_putchar@PLT
-	subl	$1, -4(%rbp)
+	movl	%eax, -420(%rbp)
+	movl	$0, -428(%rbp)
+	movl	$0, -424(%rbp)
+	jmp	.L2
 .L3:
-	movl	-4(%rbp), %eax
+	movl	-424(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
-	movq	-24(%rbp), %rax
+	movq	-440(%rbp), %rax
 	addq	%rdx, %rax
-	movl	(%rax), %eax
-	testl	%eax, %eax
-	jns	.L4
-	addl	$1, -8(%rbp)
+	movl	(%rax), %edx
+	movl	-428(%rbp), %eax
+	cltq
+	movl	%edx, -416(%rbp,%rax,4)
+	addl	$1, -428(%rbp)
+	addl	$1, -424(%rbp)
 .L2:
-	movl	-8(%rbp), %eax
+	movl	-428(%rbp), %eax
+	cmpl	-444(%rbp), %eax
+	jl	.L3
+	cmpl	$0, -444(%rbp)
+	jle	.L8
+	jmp	.L5
+.L6:
+	movl	-432(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
-	movq	-24(%rbp), %rax
-	addq	%rdx, %rax
-	movl	(%rax), %eax
-	testl	%eax, %eax
-	jne	.L5
+	movq	-440(%rbp), %rax
+	addq	%rax, %rdx
+	movl	-420(%rbp), %eax
+	cltq
+	movl	-416(%rbp,%rax,4), %eax
+	movl	%eax, (%rdx)
+	subl	$1, -420(%rbp)
+	addl	$1, -432(%rbp)
+.L5:
+	movl	-432(%rbp), %eax
+	cmpl	-444(%rbp), %eax
+	jl	.L6
+.L8:
 	nop
-	nop
+	movq	-8(%rbp), %rax
+	subq	%fs:40, %rax
+	je	.L7
+	call	__stack_chk_fail@PLT
+.L7:
 	leave
 	.cfi_def_cfa 7, 8
 	ret
