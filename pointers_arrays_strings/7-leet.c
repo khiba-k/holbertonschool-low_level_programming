@@ -2,7 +2,7 @@
 
 /**
  * leet - function to incode a string
- * @str: string
+ * @s: string
  * Return: returns encoded string
  */
 
