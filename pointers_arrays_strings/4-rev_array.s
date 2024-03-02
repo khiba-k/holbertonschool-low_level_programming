@@ -17,7 +17,6 @@ reverse_array:
 	movl	-28(%rbp), %eax
 	subl	$1, %eax
 	movl	%eax, -4(%rbp)
-	movl	$9, -4(%rbp)
 	jmp	.L2
 .L3:
 	movl	-4(%rbp), %eax
