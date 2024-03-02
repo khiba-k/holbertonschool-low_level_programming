@@ -11,27 +11,30 @@ reverse_array:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movq	%rdi, -8(%rbp)
-	movl	%esi, -12(%rbp)
-	movl	$9, -12(%rbp)
+	subq	$32, %rsp
+	movq	%rdi, -24(%rbp)
+	movl	%esi, -28(%rbp)
+	movl	-28(%rbp), %eax
+	subl	$1, %eax
+	movl	%eax, -4(%rbp)
+	movl	$9, -4(%rbp)
 	jmp	.L2
 .L3:
-	movl	-12(%rbp), %eax
+	movl	-4(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
-	movq	-8(%rbp), %rax
+	movq	-24(%rbp), %rax
 	addq	%rdx, %rax
 	movl	(%rax), %eax
 	movsbl	%al, %eax
 	movl	%eax, %edi
 	call	_putchar@PLT
-	subl	$1, -12(%rbp)
+	subl	$1, -4(%rbp)
 .L2:
-	movl	-12(%rbp), %eax
+	movl	-4(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
-	movq	-8(%rbp), %rax
+	movq	-24(%rbp), %rax
 	addq	%rdx, %rax
 	movl	(%rax), %eax
 	testl	%eax, %eax
