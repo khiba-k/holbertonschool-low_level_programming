@@ -18,7 +18,7 @@ reverse_array:
 	subl	$1, %eax
 	movl	%eax, -4(%rbp)
 	jmp	.L2
-.L3:
+.L4:
 	movl	-4(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -37,8 +37,16 @@ reverse_array:
 	addq	%rdx, %rax
 	movl	(%rax), %eax
 	testl	%eax, %eax
-	jns	.L3
-	nop
+	js	.L5
+	movl	-4(%rbp), %eax
+	cltq
+	leaq	0(,%rax,4), %rdx
+	movq	-24(%rbp), %rax
+	addq	%rdx, %rax
+	movl	(%rax), %eax
+	testl	%eax, %eax
+	jne	.L4
+.L5:
 	nop
 	leave
 	.cfi_def_cfa 7, 8
