@@ -1,0 +1,19 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ *_memset - function sets memory of b into s
+ *@s: destination variable
+ *@b: source variable
+ *@n: number of times to print
+ *Return: end of function
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+unsigned int j;
+*s = b;
+for (j = 0; j < n; j++)
+{
+printf("%c", *s);
+}
+return (0);
+}
