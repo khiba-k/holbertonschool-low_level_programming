@@ -1,0 +1,13 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ * 
+ *  
+ */
+void set_string(char **s, char *to)
+{
+  char s;
+  &s = *to;
+  **s = &s;
+  printf("%c", **s);
+}
