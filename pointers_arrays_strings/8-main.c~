@@ -1,0 +1,18 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ * 
+ *  
+ */
+void print_diagsums(int *a, int size)
+{
+  int i, j;
+  for (i = 0; i < size; i++)
+    {
+      for (j = 1; j < i; j++)
+	{
+	  putchar(*a[i][j]);
+	}
+    }
+	    
+}
