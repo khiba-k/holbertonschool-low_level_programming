@@ -6,8 +6,8 @@
  *@argv: argument vector
  *Return: end of function
 */
-int main(int argc, char *argv[]__attribute__((unused)))
+int main(int argc, char *argv[])
 {
-printf("%d\n", argc);
+
 return (0);
 }

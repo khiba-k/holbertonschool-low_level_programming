@@ -4,9 +4,17 @@
  * 
  * 
 */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
-  for (i = 0; argv[i] != '\0'; i++)
+  int i;
+  int j;
+  for (i = 0; i < argc; i++)
     {
-      printf("%d", argv[
+      if (i > 0)
+	{
+	  j = argv[i] - '0';
+	printf("%d", j * j);
+	}
+    }
+  return (Error);
 }
