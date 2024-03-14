@@ -5,7 +5,7 @@
 /**
  *_calloc - function allocates memory for array
  *@nmemb: parameter for number of elements
- *size: parameter for number of bytes
+ *@size: parameter for number of bytes
  *Return: returns value/ end of function
 */
 void *_calloc(unsigned int nmemb, unsigned int size)
@@ -21,7 +21,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		len++;
 	}
-	j = len * size;
+	j = (len + 1) * size;
 	s = malloc(j);
 	for (k = 0; k < j; k++)
 		s[k] = 0;
