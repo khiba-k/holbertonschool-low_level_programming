@@ -31,9 +31,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		;
 	sum = len + j;
 	c = malloc((sum + 1) * sizeof(char));
-	if (c == NULL) 
+	if (c == NULL)
 	{
-        return NULL;
+		return (NULL);
 	}
 	for (i = 0; s1[i] != '\0'; i++)
 		c[cat++] = s1[i];
