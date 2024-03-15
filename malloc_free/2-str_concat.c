@@ -31,7 +31,7 @@ char *str_concat(char *s1, char *s2)
 		}
 	}
 	sum = len1 + len2;
-	c = malloc(sum * sizeof(c));
+	c = malloc(sum * sizeof(char));
 	for (sum = 0; s1[sum]; sum++)
 		c[cat_sum++] = s1[sum];
 	for (sum = 0; s2[sum]; sum++)
