@@ -1,5 +1,5 @@
 #ifndef FUNCTIONPOINTERS_H
-#define FUBCTIONPOINTERS_H
+#define FUNCTIONPOINTERS_H
 
 #include <stddef.h>
 int _putchar(char c);
