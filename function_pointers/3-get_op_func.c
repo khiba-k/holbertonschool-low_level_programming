@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include "3-calc.h"
 /**
- *
- *
+ *get_op_func - function gets operators
+ *@s: parameter of operator
+ *Return: value to return
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -18,10 +19,8 @@ int (*get_op_func(char *s))(int, int)
 
     while (i < 5)
     {
-	    if (*ops[i].op == *s && !((*s + 1)))
-	    {
+	    if (*ops[i].op == *s && !(*(s + 1)))
 		return(ops[i].f);
-	    }
 	    i++;
     }
     return (NULL);
