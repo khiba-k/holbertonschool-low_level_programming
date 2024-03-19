@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include "3-calc.h"
-#include <stdlib>
 /**
  *
  *
  */
-int (*get_op_func(char *s))(int, int);
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
         {"+", op_add},
