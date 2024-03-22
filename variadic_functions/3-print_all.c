@@ -1,61 +1,96 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include "main.h"
+#include "variadic_functions.h"
 
 /**
- *print_char - function prints char
- *@toast: variable of va_list
+ * printf_char - printfs a char from var args
+ *
+ * @toast: va_list to print from
+ *
+ * Return: void
  */
-void print_char(va_list toast)
+void printf_char(va_list toast)
 {
-	printf("%c" va_arg(toast, int));
+	printf("%c", (char)va_arg(toast, int));
 }
 
-
 /**
- *print_char - function prints char
- *@toast: variable of va_list
+ * printf_int - printfs an int from var args
+ *
+ * @toast: va_list to print from
+ *
+ * Return: void
  */
-void print_integer(va_list toast)
+void printf_int(va_list toast)
 {
 	printf("%d", va_arg(toast, int));
 }
 
-
 /**
- *print_char - function prints char
- *@toast: variable of va_list
+ * printf_float - printfs a float from var args
+ *
+ * @toast: va_list to print from
+ *
+ * Return: void
  */
-void print_float(va_list toast)
+void printf_float(va_list toast)
 {
-	printf("%f", va_arg(toast, int));
+	printf("%f", (float)va_arg(toast, double));
 }
 
-
 /**
- *print_char - function prints char
- *@toast: variable of va_list
+ * printf_string - printfs a string from var args
+ *
+ * @toast: va_list to print from
+ *
+ * Return: void
  */
-void print_string(va_list toast)
+void printf_string(va_list toast)
 {
-	char *s = va_arg(toast, int);
-	if (!s)
+	char *str = va_arg(toast, char*);
+
+	while (str != NULL)
 	{
-		printf("(nil)");
+		printf("%s", str);
 		return;
 	}
-	printf("%s", s);
+	printf("(nil)");
 }
 
 /**
- *print_all - function prints anything
- *@format: format type of arguments
+ * print_all - prints various types given a format string for the arguments
+ *
+ * @format: string containing type information for args
+ *
+ * Return: void
  */
 void print_all(const char * const format, ...)
 {
-	typedef struct ops {
-		{"c", print_char},
-		{"i", print_integer},
-		{"f", print_float},
-		{"s", print_string},
-		{NULL, NULL}
+	const char *ptr;
+	va_list toast;
+	funckey key[4] = {{printf_char, 'c'}, {printf_int, 'i'},
+			   {printf_float, 'f'}, {printf_string, 's'}};
+	int keyind = 0, notfirst = 0;
+
+	ptr = format;
+	va_start(toast, format);
+	while (format != NULL && *ptr)
+	{
+		if (key[keyind].spec == *ptr)
+		{
+			if (notfirst)
+				printf(", ");
+			notfirst = 1;
+			key[keyind].f(toast);
+			ptr++;
+			keyind = -1;
+		}
+		keyind++;
+		ptr += keyind / 4;
+		keyind %= 4;
+	}
+	printf("\n");
+
+	va_end(toast);
+}
+
