@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-#include <string.h> 
+#include <string.h>
 
 /**
  *print_list - function prints list
@@ -24,6 +24,6 @@ size_t print_list(const list_t *h)
 		h = h->next;
 		num++;
 	}
-	
+
 	return (num);
 }
