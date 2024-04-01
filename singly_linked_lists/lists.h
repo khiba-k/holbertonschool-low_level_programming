@@ -10,7 +10,8 @@
  * @len: length of the string
  * @next: points to the next node
  */
-typedef struct node{
+typedef struct node
+{
 	char *str;
 	int len;
 	struct node *next;
