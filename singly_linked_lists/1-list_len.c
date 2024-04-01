@@ -3,11 +3,20 @@
 #include "lists.h"
 
 /**
- *
- *
+ *list_len - function returns length
+ *@h: function variable of struct/ head pointer
+ *Return: return number of elements
  */
 size_t list_len(const list_t *h)
-{
-	printf("%d", h->next->len);
-	return (0);
+{	
+	size_t num;
+
+	num = 0;
+	while (h != NULL)
+	{
+		h = h->next;
+		num++;
+	}
+
+	return (num);
 }
