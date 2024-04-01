@@ -5,7 +5,6 @@
 
 /**
  *print_list - function prints list
- *@list_t: name of structure
  *@h: head pointer/ stucture pointer
  *Return: return num of elements
  */
