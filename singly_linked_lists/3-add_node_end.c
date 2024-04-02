@@ -42,7 +42,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	{
 		pointr = pointr->next;
 	}
-
 	pointr->next = ptr;
+
 	return (*head);
 }
