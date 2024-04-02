@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include "lists.h"
+#include <stdlib.h>
+
+/**
+ *free_list - function frees list
+ *@head: structure variable/ pointer to first member of node structure
+ */
+void free_list(list_t *head)
+{
+	list_t *freeSpace = malloc(sizeof(list_t));
+
+	freeSpace = head;
+
+	while(freeSpace != NULL)
+	{
+		head = head->next;
+		free(freeSpace->str);
+		free(freeSpace);
+	}
+}
