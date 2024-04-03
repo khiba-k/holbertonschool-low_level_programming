@@ -2,9 +2,8 @@
 #include "lists.h"
 
 /**
- *get_dnodeint_at_index - function returns the nth element
+ *sum_dlistint - function returns the nth element
  *@head: structure pointer
- *@index: the index of the node
  *Return: value to be returned
 */
 int sum_dlistint(dlistint_t *head)
