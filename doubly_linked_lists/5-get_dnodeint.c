@@ -9,12 +9,10 @@
 */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	 unsigned int j = 0;
-	
-	 if (head == NULL)
-	 {
-		 printf("nil");
-	 }
+	unsigned int j = 0;
+
+	if (head == NULL)
+		return (NULL);
 	while (j < index)
 	{
 		head = head->next;
