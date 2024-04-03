@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- *free_dlistint_t - function frees up space
+ *free_dlistint - function frees up space
  *@head: structure pointer
  *Return: value to return
  */
