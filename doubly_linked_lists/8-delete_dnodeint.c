@@ -4,7 +4,7 @@
 /**
  *delete_dnodeint_at_index - function deletes node at index
  *@head: structure pointer
- *index: the index of nod eto be delelted
+ *@index: the index of nod eto be delelted
  *Return: value to return
 */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
