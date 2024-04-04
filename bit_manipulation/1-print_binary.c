@@ -2,8 +2,9 @@
 #include "main.h"
 
 /**
- *
- *
+ *print_binary - function prints binary numbers
+ *@n: the integer to convert into binary
+ *Return: value to return
  */
 void print_binary(unsigned long int n)
 {
