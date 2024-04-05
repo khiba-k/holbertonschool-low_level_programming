@@ -20,6 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		write(fd, filename, sizeof(filename));
 		read(fd, buffer, sizeof(filename));
+		printf("%s", buffer);
 	}
 	for (i = 0; i < letters; i++)
 		return (i);
