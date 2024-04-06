@@ -6,15 +6,16 @@
 #include <stdlib.h>
 
 /**
- *
- *
- *
+ *read_textfile - function reads text file and prints it
+ *@filename: name of file to print
+ *@letters: number of letters to read and print
+ *Return: number of letters to read and print
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd, readf, writeit;
 	char *s;
-	
+
 	if (filename == NULL)
 		return (0);
 
@@ -40,7 +41,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(fd);
 	free(s);
 	if (readf == writeit)
-		return(writeit);
+		return (writeit);
 
 	return (0);
 }
