@@ -14,11 +14,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char buffer[3000];
 	int fd;
 	size_t i;
-	fd = open("temp.txt", O_RDWR);
+	fd = open("buffer", O_RDWR);
 
 	if (fd != -1)
 	{
-		write(fd, filename, sizeof(filename));
+		/*write(fd, dog, sizeof(filename));*/
 		read(fd, buffer, sizeof(filename));
 		printf("%s", buffer);
 	}
