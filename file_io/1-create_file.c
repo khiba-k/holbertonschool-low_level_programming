@@ -6,14 +6,14 @@
 #include <string.h>
 
 /**
- *
- *
- *
- *
+ *create_file - function creates a file
+ *@filename: pointer to file to create
+ *@text_content: pointer to text to write in file
+ *Return: value to return
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, writef,i = 0;
+	int fd, writef, i = 0;
 
 	if (filename == NULL)
 		return (-1);
